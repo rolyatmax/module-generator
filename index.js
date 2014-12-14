@@ -18,6 +18,15 @@ getParams(function(err, params) {
   }).on('data', function(file) {
     var dest = path.resolve(target, file.path)
 
+    if (path.basename(dest) === 'LICENSE_shared.md') {
+      if (!params.shared) return
+      dest = path.resolve(dest, '..', 'LICENSE.md')
+    }
+    if (path.basename(dest) === 'LICENSE_solo.md') {
+      if (params.shared) return
+      dest = path.resolve(dest, '..', 'LICENSE.md')
+    }
+
     if (fs.existsSync(dest)) {
       return console.log('ignoring: ' + file.path)
     }
@@ -47,7 +56,8 @@ function getParams(done) {
     if (err) return done(err)
 
     var data = {
-      user: {
+        tags: JSON.stringify(['ecosystem:stackgl'], null, 2)
+      , user: {
           name: config.get('init.author.name')
         , site: config.get('init.author.url')
         , email: config.get('init.author.email')
@@ -58,9 +68,9 @@ function getParams(done) {
 
     if (!data.user.username) return bail('npm login')
     if (!data.user.name) return bail('npm config set init.author.name "Your Name"')
-    if (!data.user.site) return bail('npm config set init.author.url "http://example.com"')
-    if (!data.user.email) return bail('npm config set init.author.email "me@example.com"')
     if (!data.user.github) return bail('npm config set init.author.github "your-github-handle"')
+    if (!data.user.email) return bail('npm config set init.author.email "me@example.com"')
+    data.user.site = data.user.site || 'http://github.com/' + data.user.github
 
     prompt([
       {
@@ -71,10 +81,6 @@ function getParams(done) {
       {
           'name': 'description'
         , 'message': 'Module description'
-      },
-      {
-          'name': 'tags'
-        , 'message': 'Module tags:'
       },
       {
           'name': 'stability'
@@ -89,15 +95,19 @@ function getParams(done) {
           , 'frozen'
           , 'locked'
         ]
+      },
+      {
+          'name': 'shared'
+        , 'message': 'Hosted in the stackgl GitHub organisation?'
+        , 'default': false
+        , 'type': 'confirm'
       }
     ], function(results) {
       if (err) return done(err)
+      if (results.shared) data.user.github = 'stackgl'
 
       results.name = dequote(results.name)
       results.description = dequote(results.description)
-      results.tags = JSON.stringify(results.tags.split(',').map(function(str) {
-        return dequote(str).trim()
-      }).filter(Boolean), null, 2)
 
       done(null, xtend(results, data))
     })

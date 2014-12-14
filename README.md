@@ -1,13 +1,14 @@
-# module-generator [![experimental](http://badges.github.io/stability-badges/dist/experimental.svg)](http://github.com/badges/stability-badges)
+# stackgl-generator [![experimental](http://badges.github.io/stability-badges/dist/experimental.svg)](http://github.com/badges/stability-badges)
 
-The generator script I use for fresh modules.
+Spits out fresh [stackgl](http://github.com/stackgl) modules for your
+convenience. Usage is optional :)
 
 ## Usage
 
 Install with npm:
 
 ``` bash
-npm install -g hughsk/module-generator
+npm install -g stackgl-generator
 ```
 
 Update your npm config:
@@ -24,10 +25,10 @@ Run the generator in a fresh folder and you're good to go!
 ``` bash
 mkdir my-new-module
 cd my-new-module
-module-generator
-npm init
+stackgl-generator
+npm install
 ```
 
 ## License
 
-MIT. See [LICENSE.md](http://github.com/hughsk/module-generator/blob/master/LICENSE.md) for details.
+MIT. See [LICENSE.md](http://github.com/hughsk/stackgl-generator/blob/master/LICENSE.md) for details.

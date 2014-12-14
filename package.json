@@ -1,13 +1,15 @@
 {
-  "name": "module-generator",
+  "name": "stackgl-generator",
   "version": "1.0.0",
   "bin": {
-    "module-generator": "index.js"
+    "stackgl-generator": "index.js"
   },
-  "description": "The generator script I use for fresh modules",
+  "description": "Spits out fresh stackgl modules for your convenience",
   "main": "index.js",
   "license": "MIT",
-  "scripts": {},
+  "scripts": {
+    "test": "rm -rf tmp && mkdir tmp && cd tmp && ../index.js"
+  },
   "author": "Hugh Kennedy <hughskennedy@gmail.com> (http://hughsk.io/)",
   "dependencies": {
     "dotty": "0.0.2",
@@ -19,7 +21,7 @@
   "devDependencies": {},
   "repository": {
     "type": "git",
-    "url": "git://github.com/hughsk/module-generator.git"
+    "url": "git://github.com/stackgl/stackgl-generator.git"
   },
   "keywords": [
     "generator",
@@ -29,8 +31,8 @@
     "author",
     "npm"
   ],
-  "homepage": "https://github.com/hughsk/module-generator",
+  "homepage": "https://github.com/stackgl/stackgl-generator",
   "bugs": {
-    "url": "https://github.com/hughsk/module-generator/issues"
+    "url": "https://github.com/stackgl/stackgl-generator/issues"
   }
 }
