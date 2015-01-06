@@ -55,7 +55,7 @@ If you specify `--test` or `-t` flags, it will produce `index.js` and `test.js` 
 
 ```js
 var myFunkyModule = require('./')
-var test = require('tape').test
+var test = require('tape')
 
 test(/* description inserted here */, function(t) {
 	
@@ -81,4 +81,4 @@ This will use "stackgl" as the name in License and in all github links. The auth
 
 ## License
 
-MIT. See [LICENSE.md](http://github.com/hughsk/module-generator/blob/master/LICENSE.md) for details.
+MIT. See [LICENSE.md](http://github.com/mattdesl/module-generator/blob/master/LICENSE.md) for details.

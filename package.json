@@ -8,6 +8,9 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {},
+  "contributors": [
+    "Matt DesLauriers <dave.des@gmail.com>"
+  ],
   "author": "Hugh Kennedy <hughskennedy@gmail.com> (http://hughsk.io/)",
   "dependencies": {
     "chalk": "^0.5.1",
@@ -25,7 +28,7 @@
   "devDependencies": {},
   "repository": {
     "type": "git",
-    "url": "git://github.com/hughsk/module-generator.git"
+    "url": "git://github.com/mattdesl/module-generator.git"
   },
   "keywords": [
     "generator",
@@ -35,8 +38,8 @@
     "author",
     "npm"
   ],
-  "homepage": "https://github.com/hughsk/module-generator",
+  "homepage": "https://github.com/mattdesl/module-generator",
   "bugs": {
-    "url": "https://github.com/hughsk/module-generator/issues"
+    "url": "https://github.com/mattdesl/module-generator/issues"
   }
 }
