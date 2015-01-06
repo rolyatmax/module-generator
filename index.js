@@ -11,6 +11,7 @@ var xtend    = require('xtend')
 var dotty    = require('dotty')
 var path     = require('path')
 var fs       = require('fs')
+var escape = require('js-string-escape')
 
 var argv = require('yargs')
       .alias('t', 'test')
@@ -35,7 +36,7 @@ getParams(function(err, params) {
     var dest = path.resolve(target, file.path)
 
     if (!argv.t) {
-      if (file.path === 'index.js' || file.path === 'test.js')
+      if (file.path === 'index.js' || file.path === '_test.js')
         return
     }
 
@@ -52,9 +53,10 @@ getParams(function(err, params) {
         content = JSON.stringify(JSON.parse(content), null, 2)
       }
 
-      if (file.name.match(/\_\.gitignore$/g)) {
-        dest = dest.replace('_.gitignore', '.gitignore');
-      }
+      if (file.name.match(/\_\.gitignore$/g)) 
+        dest = dest.replace('_.gitignore', '.gitignore')
+      else if (file.name === '_test.js')
+        dest = dest.replace('_test.js', 'test.js')
 
       fs.writeFile(dest, content)
     })
@@ -135,6 +137,7 @@ function getParams(done) {
       if (err) return done(err)
 
       results.name = dequote(results.name)
+      results.testDescription = escape(results.description).replace(/\\"+/g, '\"')
       results.description = dequote(results.description)
       results.varName = varName(results.name)
       results.tags = JSON.stringify(results.tags.split(' ').map(function(str) {
