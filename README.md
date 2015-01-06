@@ -8,7 +8,7 @@ The generator script I use for fresh modules. Forked from [hughsk](https://githu
 Install with npm:
 
 ``` bash
-npm install -g mattdesl/module-generator
+npm install -g module-generator
 ```
 
 Update your npm config:
