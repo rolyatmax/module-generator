@@ -55,6 +55,8 @@ getParams(function(err, params) {
 
       if (file.name.match(/\_\.gitignore$/g)) 
         dest = dest.replace('_.gitignore', '.gitignore')
+      else if (file.name.match(/\_\.npmignore$/g))
+        dest = dest.replace('_.npmignore', '.npmignore')
       else if (file.name === '_test.js')
         dest = dest.replace('_test.js', 'test.js')
 
