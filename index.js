@@ -39,7 +39,7 @@ getParams(function(err, params) {
       if (file.name.match(/\.json$/g)) {
         content = JSON.stringify(JSON.parse(content), null, 2)
       } else {
-        dest = dest.replace(/^\_\.(gitignore|npmignore)$/, '.$1')
+        dest = dest.replace(/\_\.(gitignore|npmignore)$/, '.$1')
       }
 
       fs.writeFile(dest, content)
