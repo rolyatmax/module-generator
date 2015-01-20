@@ -18,6 +18,13 @@
     "readdirp": "^1.0.1",
     "xtend": "^3.0.0"
   },
+  "files": [
+    "./templates/**",
+    "README.md",
+    "index.js",
+    "package.json",
+    "LICENSE.md"
+  ],
   "devDependencies": {},
   "repository": {
     "type": "git",
