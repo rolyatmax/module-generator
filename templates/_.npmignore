@@ -2,4 +2,8 @@ node_modules
 *.log
 .DS_Store
 bundle.js
-!.npmignore
+test
+test.js
+demo
+example
+.npmignore

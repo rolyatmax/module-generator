@@ -4,4 +4,4 @@ node_modules
 bundle.js
 test
 test.js
-!.gitignore
+.npmignore
