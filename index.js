@@ -85,9 +85,11 @@ function getParams(done) {
       }
     }
 
-    if (argv.u) {
+    if (typeof argv.u === 'string') {
       data.org = { name: argv.u, github: argv.u }
       console.log(chalk.green('Creating module under organization '+chalk.bold(data.org.name)))
+    } else if (argv.u) {
+      return done('--user specified, but without an organization!')
     }
 
     // if (!data.user.username) return bail('npm login')
