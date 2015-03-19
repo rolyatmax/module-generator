@@ -45,11 +45,11 @@ package.json
 
 ```
 Options
-	--test, -t      generate test.js and index.js with tape
-    --user, -u      the user/organization override
+  --test, -t      generate test.js and index.js with tape
+  --user, -u      the user/organization override
 ```
 
-## Basic Tests
+## Test Stub
 
 If you specify `--test` or `-t` flags, it will produce `index.js` and `test.js` files if they don't already exist. The index will be empty, and the test looks like this for a module called `my-funky-module`.
 
@@ -58,8 +58,8 @@ var myFunkyModule = require('./')
 var test = require('tape')
 
 test(/* description inserted here */, function(t) {
-	
-	t.end()
+  
+  t.end()
 })
 ```
 
