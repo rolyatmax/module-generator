@@ -4,6 +4,14 @@
 
 {{description}}
 
+## Install
+
+Use [npm](https://npmjs.com/) to install.
+
+```sh
+npm install {{name}} --save
+```
+
 ## Usage
 
 [![NPM](https://nodei.co/npm/{{name}}.png)](https://www.npmjs.com/package/{{name}})
