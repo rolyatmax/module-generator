@@ -2,7 +2,8 @@
   "name": "{{name}}",
   "version": "1.0.0",
   "description": "{{description}}",
-  "main": "index.js",
+  "main": "umd.js",
+  "module": "index.js",
   "license": "MIT",
   "author": {
     "name": "{{user.name}}",
@@ -12,7 +13,10 @@
   "dependencies": {},
   "devDependencies": {{devDependencies}},
   "scripts": {
-    "test": "node test.js"
+    "build": "rollup --format=umd --name={{moduleName}} -- index.js > umd.js",
+    "test": "node test.js",
+    "lint": "standard",
+    "prepublish": "npm run build && npm run lint"
   },
   "keywords": {{tags}},
   "repository": {
